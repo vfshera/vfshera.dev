@@ -2,8 +2,8 @@ pre-commit:
   commands:
     format:
       glob: "**/*.{ts,tsx}"
-      run: pnpm exec prettier --write --ignore-unknown {staged_files}
+      run: bun run prettier --write --ignore-unknown {staged_files}
 
     lint:
       glob: "**/*.{ts,tsx}"
-      run: pnpm exec eslint --fix {staged_files}
+      run: bun run eslint --fix {staged_files}
