@@ -2,6 +2,8 @@
 import "~/styles/global.css";
 import { SEO, type Props as SEOProps } from "astro-seo";
 import { site } from "~/constants/config";
+import invariant from "tiny-invariant";
+
 interface Props extends SEOProps {
   /**
    * Applied to html body
@@ -23,26 +25,61 @@ const {
   class: className,
   "class:list": classList,
   lang = "en",
-  ...props
+  ...givenProps
 } = Astro.props;
 
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site || site.url);
+invariant(Astro.site, "Please set site in Astro config");
+
+const { openGraph, ...props } = givenProps;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+
+const iconLinks: astroHTML.JSX.LinkHTMLAttributes[] = [
+  {
+    rel: "apple-touch-icon",
+    sizes: "180x180",
+    href: "/apple-touch-icon.png",
+  },
+  {
+    rel: "icon",
+    type: "image/png",
+    sizes: "32x32",
+    href: "/favicon-32x32.png",
+  },
+  {
+    rel: "icon",
+    type: "image/png",
+    sizes: "16x16",
+    href: "/favicon-16x16.png",
+  },
+];
 ---
 
 <html lang={lang}>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
+
+    {iconLinks.map((link) => <link {...link} />)}
+
     <SEO
       title={title}
       titleDefault={site.meta.title}
       titleTemplate={`%s | ${site.meta.title}`}
       description={description || site.meta.description}
       canonical={canonicalUrl}
+      openGraph={{
+        basic: {
+          image: new URL("/og.png", Astro.site).href,
+          title: site.meta.title,
+          type: "website",
+          url: Astro.site,
+        },
+        ...openGraph,
+      }}
       {...props}
     />
+
     <slot name="head" />
   </head>
   <body class:list={[classList, className]}>
