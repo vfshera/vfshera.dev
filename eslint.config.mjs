@@ -8,7 +8,7 @@ import { defineConfig } from "eslint/config";
 
 export default defineConfig(
   {
-    ignores: ["dist", ".astro"],
+    ignores: ["dist", ".astro", "bun.lock"],
   },
   astroPlugin.configs.recommended,
   tseslint.configs.recommended,

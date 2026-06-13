@@ -1,0 +1,14 @@
+---
+import BaseLayout from "./Base.astro";
+import type { ComponentProps } from "astro/types";
+interface Props extends ComponentProps<typeof BaseLayout> {}
+
+const { class: className, "class:list": classList, ...props } = Astro.props;
+---
+
+<BaseLayout {...props} class:list={[classList, className]}>
+  <slot name="head" slot="head" />
+  <slot name="navbar" />
+  <slot />
+  <slot name="footer" />
+</BaseLayout>
