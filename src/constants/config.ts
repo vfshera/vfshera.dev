@@ -3,7 +3,7 @@ import linkedinIcon from "~/assets/icons/linkedin.svg";
 import xIcon from "~/assets/icons/x.svg";
 
 export const site = {
-  name: "vfshera.dev",
+  name: "Franklin Shera",
   shortName: "vfshera",
   url: "https://vfshera.dev",
   meta: {
