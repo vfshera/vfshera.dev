@@ -1,3 +1,7 @@
+import githubIcon from "~/assets/icons/github.svg";
+import linkedinIcon from "~/assets/icons/linkedin.svg";
+import xIcon from "~/assets/icons/x.svg";
+
 export const site = {
   name: "vfshera.dev",
   shortName: "vfshera",
@@ -11,15 +15,18 @@ export const site = {
 
 export const socials = [
   {
+    icon: githubIcon,
     name: "Github",
     link: "https://github.com/vfshera",
   },
   {
+    icon: linkedinIcon,
     name: "Linkedin",
     link: "https://www.linkedin.com/in/vfshera",
   },
   {
-    name: "Twitter",
+    icon: xIcon,
+    name: "X/Twitter",
     link: "https://twitter.com/1vfshera",
   },
 ] as const;
