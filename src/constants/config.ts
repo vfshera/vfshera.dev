@@ -1,5 +1,6 @@
 export const site = {
   name: "vfshera.dev",
+  shortName: "vfshera",
   url: "https://vfshera.dev",
   meta: {
     title: "Franklin Shera",

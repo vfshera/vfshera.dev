@@ -5,17 +5,8 @@ import { site } from "~/constants/config";
 import invariant from "tiny-invariant";
 
 interface Props extends SEOProps {
-  /**
-   * Applied to html body
-   */
   class?: astroHTML.JSX.HTMLAttributes["class"];
-  /**
-   * Applied to html body
-   */
   "class:list"?: astroHTML.JSX.HTMLAttributes["class:list"];
-  /**
-   * Language of the document
-   */
   lang?: string;
 }
 
@@ -61,6 +52,8 @@ const iconLinks: astroHTML.JSX.LinkHTMLAttributes[] = [
     <meta name="viewport" content="width=device-width" />
 
     {iconLinks.map((link) => <link {...link} />)}
+
+    <link rel="manifest" href="/manifest.json" />
 
     <SEO
       title={title}
