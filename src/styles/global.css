@@ -1,1 +1,88 @@
 @import "tailwindcss";
+
+html,
+body {
+    height: 100%;
+}
+
+@theme inline {
+    --font-space-grotesk: var(--ff-space-grotesk);
+}
+
+@theme {
+    --color-vf-dark-1: #141414;
+    --color-vf-dark-2: #242424;
+    --color-vf-accent: #4ce19e;
+    --color-vf-gray: #d9d9d9;
+    --color-vf-red: #ff6f5c;
+}
+
+@layer base {
+
+    p {
+        font-size: 1rem;
+        font-size: clamp(1rem, 0.79rem + 0.89vw, 1.125rem);
+        line-height: 1.5;
+        color: var(--color-vf-gray);
+    }
+
+    a {
+        transition: color 250ms ease-in-out;
+    }
+
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+        outline: 2px dashed var(--color-vf-accent);
+        outline-offset: 2px;
+    }
+
+    input:invalid,
+    textarea:invalid {
+        outline-color: var(--color-vf-red);
+    }
+
+    a.underline,
+    button {
+        display: inline-block;
+        padding-bottom: 0.625rem;
+        font-size: 1rem;
+        line-height: 1.625;
+        letter-spacing: 0.143em;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--color-white);
+        text-decoration: none;
+        background-image: linear-gradient(to right,
+                var(--color-vf-accent) 75%,
+                var(--color-vf-accent) 75%);
+        background-position: 0 2.1em;
+        background-repeat: repeat-x;
+        background-size: 8px 2px;
+    }
+
+    a:hover {
+        color: var(--color-vf-accent);
+    }
+}
+
+
+
+@layer components {
+
+    .wrapper {
+        width: calc(100% - 2rem);
+        max-width: 69.375rem;
+        margin-inline: auto;
+
+        @media (width>=37.5rem) {
+
+            width: calc(100% - 3.75rem);
+
+        }
+    }
+
+    .bottom-border {
+        border-bottom: 1px solid var(--color-vf-gray);
+    }
+}
