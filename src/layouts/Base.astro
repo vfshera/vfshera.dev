@@ -3,6 +3,7 @@ import "~/styles/global.css";
 import { SEO, type Props as SEOProps } from "astro-seo";
 import { site } from "~/constants/config";
 import invariant from "tiny-invariant";
+import { Font } from "astro:assets";
 
 interface Props extends SEOProps {
   class?: astroHTML.JSX.HTMLAttributes["class"];
@@ -72,6 +73,8 @@ const iconLinks: astroHTML.JSX.LinkHTMLAttributes[] = [
       }}
       {...props}
     />
+
+    <Font cssVariable="--ff-space-grotesk" preload />
 
     <slot name="head" />
   </head>

@@ -1,10 +1,8 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-
 import cloudflare from "@astrojs/cloudflare";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://vfshera.dev",
 
@@ -12,4 +10,13 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   adapter: cloudflare(),
+  fonts: [
+    {
+      name: "Space Grotesk",
+      cssVariable: "--ff-space-grotesk",
+      provider: fontProviders.google(),
+      weights: [400, 500, 600, 700],
+      styles: ["normal"],
+    },
+  ],
 });
