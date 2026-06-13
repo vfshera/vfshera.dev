@@ -1,0 +1,80 @@
+---
+import Input from "./form/Input.astro";
+import TextArea from "./form/TextArea.astro";
+---
+
+<section title="Contact" id="contact" class="relative bg-slate-800">
+  <div
+    class="wrapper bottom-border py-21 lg:grid lg:grid-cols-[repeat(2,27.8rem)] lg:justify-between"
+  >
+    <div class="text-center lg:text-left">
+      <h2
+        class="mb-5 text-[clamp(2.2rem,0.5rem+6.5vw,4.5rem)] leading-[1.2] tracking-[-0.028em] lg:mb-9"
+      >
+        Contact
+      </h2>
+      <p class="">
+        "I'm excited to learn about your project and explore how I can assist
+        you. Feel free to fill in the form, and I'll personally reach out to you
+        as soon as possible.
+      </p>
+    </div>
+    <form class="contact-form relative isolate">
+      <Input
+        label="Name"
+        type="text"
+        name="eman"
+        placeholder="Name"
+        minlength={5}
+        required
+      />
+
+      <input
+        class="pointer-events-none absolute bottom-0 left-0 z-[-1] bg-transparent opacity-0"
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Email"
+      />
+
+      <Input
+        label="Email"
+        type="email"
+        name="liame"
+        placeholder="Email"
+        required
+      />
+
+      <TextArea
+        label="Message"
+        name="egassem"
+        cols={30}
+        rows={3}
+        placeholder="Message"
+        minlength={5}
+        required
+      />
+
+      <div class="flex justify-center lg:justify-end">
+        <button type="submit" class="border-none bg-transparent">
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <svg
+    class="rings absolute bottom-24.25 left-0 translate-x-[-75%] translate-y-[-75%] sm:bottom-11.75 lg:translate-x-[-40%] lg:translate-y-[-20%]"
+    xmlns="http://www.w3.org/2000/svg"
+    width="530"
+    height="129"
+  >
+    <g fill="none" fill-rule="evenodd" stroke="#FFF" opacity=".25">
+      <ellipse cx="265" cy="40" rx="264.5" ry="39.5"></ellipse>
+      <ellipse cx="265" cy="52" rx="264.5" ry="39.5"></ellipse>
+      <ellipse cx="265" cy="65" rx="264.5" ry="39.5"></ellipse>
+      <ellipse cx="265" cy="77" rx="264.5" ry="39.5"></ellipse>
+      <ellipse cx="265" cy="89" rx="264.5" ry="39.5"></ellipse>
+    </g>
+  </svg>
+</section>

@@ -1,0 +1,24 @@
+---
+import WarningIcon from "~/assets/icons/warning.svg";
+
+interface Props extends astroHTML.JSX.TextareaHTMLAttributes {
+  label: string;
+}
+
+const { label, ...props } = Astro.props;
+---
+
+<div class="textarea-field relative mb-4">
+  <label for={props.name} class="sr-only">
+    {label}
+  </label>
+
+  <textarea
+    {...props}
+    class="peer mb-8 w-full border-b border-white bg-transparent px-6 py-4 text-base leading-relaxed text-white placeholder:text-white placeholder:uppercase placeholder:opacity-50"
+  ></textarea>
+
+  <WarningIcon
+    class="absolute top-1/2 right-0 hidden size-6 h-6 w-6 -translate-x-1/2 -translate-y-1/2 peer-focus-visible:peer-invalid:top-[1.2rem] peer-focus-visible:peer-invalid:right-6 peer-focus-visible:peer-invalid:inline-block peer-focus-visible:peer-invalid:translate-none"
+  />
+</div>
