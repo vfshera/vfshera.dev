@@ -1,11 +1,12 @@
 ---
 import ContactForm from "~/components/ContactForm.astro";
+import Projects from "~/components/Projects.astro";
 import { site } from "~/constants/config";
 import Layout from "~/layouts/Layout.astro";
 ---
 
 <Layout>
-  <section title="Hero" class="hero sm:relative sm:-mt-15.5 lg:mt-0">
+  <section title="Hero" class="sm:relative sm:-mt-15.5 lg:mt-0">
     <div class="wrapper bottom-border pb-20 sm:pb-15 lg:relative lg:pb-25">
       <div class="flex items-center sm:items-start">
         <header
@@ -31,6 +32,8 @@ import Layout from "~/layouts/Layout.astro";
       </div>
     </div>
   </section>
+
+  <Projects />
 
   <ContactForm />
 </Layout>

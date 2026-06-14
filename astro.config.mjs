@@ -3,13 +3,17 @@ import { defineConfig, fontProviders } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import cloudflare from "@astrojs/cloudflare";
 
+import mdx from "@astrojs/mdx";
+
 export default defineConfig({
   site: "https://vfshera.dev",
 
   vite: {
     plugins: [tailwindcss()],
   },
+
   adapter: cloudflare(),
+
   fonts: [
     {
       name: "Space Grotesk",
@@ -19,4 +23,6 @@ export default defineConfig({
       styles: ["normal"],
     },
   ],
+
+  integrations: [mdx()],
 });
