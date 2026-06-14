@@ -12,9 +12,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  adapter: cloudflare({
-    imageService: { build: "compile", runtime: "cloudflare-binding" },
-  }),
+  adapter: cloudflare(),
 
   fonts: [
     {
